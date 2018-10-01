@@ -1,12 +1,9 @@
 package com.protean.legislativetracker.legislativetrackerserverservicerest.model;
 
-import org.hibernate.annotations.JoinColumnOrFormula;
-
 import javax.persistence.*;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -14,7 +11,7 @@ import java.util.Set;
 public class BillVote {
     @Id
     @Column(name = "roll_call_id")
-    private Long id;
+    private Long voteId;
     @OneToOne
     @JoinColumn(name = "bill_id")
     private Bill bill;
@@ -23,18 +20,20 @@ public class BillVote {
     private Body body;
     @Column(name = "roll_call_desc")
     private Date date;
+    @Column(name = "description")
+    private String description;
     @Column(name = "yea")
     private Integer yea;
     @Column(name = "nay")
     private Integer nay;
     @Column(name = "nv")
     private Integer nv;
-    @Column(name = "abset")
+    @Column(name = "absent")
     private Integer absent;
     @Column(name = "total")
     private Integer total;
     @Column(name = "passed")
-    private Integer passed;
+    private Boolean passed;
     @Column(name = "legiscan_url")
     private URL legiscanUrl;
     @Column(name = "state_url")
@@ -50,8 +49,8 @@ public class BillVote {
     public BillVote() {
     }
 
-    public BillVote(Long id, Bill bill, Body body, Date date, Integer yea, Integer nay, Integer nv, Integer absent, Integer total, Integer passed, URL legiscanUrl, URL stateUrl, Calendar updated, Calendar created, Set<BillVoteDetail> details) {
-        this.id = id;
+    public BillVote(Long voteId, Bill bill, Body body, Date date, Integer yea, Integer nay, Integer nv, Integer absent, Integer total, Boolean passed, URL legiscanUrl, URL stateUrl, Calendar updated, Calendar created, Set<BillVoteDetail> details) {
+        this.voteId = voteId;
         this.bill = bill;
         this.body = body;
         this.date = date;
@@ -68,12 +67,12 @@ public class BillVote {
         this.details = details;
     }
 
-    public Long getId() {
-        return id;
+    public Long getVoteId() {
+        return voteId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setVoteId(Long voteId) {
+        this.voteId = voteId;
     }
 
     public Bill getBill() {
@@ -98,6 +97,14 @@ public class BillVote {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getYea() {
@@ -140,11 +147,11 @@ public class BillVote {
         this.total = total;
     }
 
-    public Integer getPassed() {
+    public Boolean getPassed() {
         return passed;
     }
 
-    public void setPassed(Integer passed) {
+    public void setPassed(Boolean passed) {
         this.passed = passed;
     }
 

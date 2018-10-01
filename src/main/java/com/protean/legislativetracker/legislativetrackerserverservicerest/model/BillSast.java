@@ -1,7 +1,6 @@
 package com.protean.legislativetracker.legislativetrackerserverservicerest.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "bill_sast")

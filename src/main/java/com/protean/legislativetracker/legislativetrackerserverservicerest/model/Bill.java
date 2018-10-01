@@ -10,127 +10,102 @@ import java.util.Set;
 @Entity
 @Table(name = "bill")
 public class Bill {
+
     @Id
     @Column(name = "bill_id", nullable = false)
-    private Long id;
-
+    private Long billId;
     @OneToOne
     @JoinColumn(name = "state_id", nullable = false)
     private State state;
-
     @OneToOne
     @JoinColumn(name = "session_id", nullable = false)
-    private Session session;
-
+    private LegislativeSession legislativeSession;
     @OneToOne
     @JoinColumn(name = "body_id", nullable = false)
     private Body body;
-
     @OneToOne
     @JoinColumn(name = "current_body_id", nullable = false)
     private Body currentBody;
-
     @OneToOne
     @JoinColumn(name = "bill_type_id", nullable = false)
     private Type type;
-
-    @Column(name = "bill_number", nullable = false)
-    private String bill_number;
-
-    @Column(name = "status", nullable = false)
-    @Enumerated(value = EnumType.ORDINAL)
-    private Status status;
-
+    @Column(name = "bill_Number", nullable = false) //ToDo change name
+    private String billNumber;
+    @OneToOne
+    @JoinColumn(name = "progress_step_id", nullable = false)
+    private Progress status;
     @Column(name = "status_date", nullable = false)
     private Date statusDate;
-
     @Column(name = "title", nullable = false)
     private String title;
-
     @Column(name = "description", nullable = false)
     private String description;
-
     @OneToOne
     @JoinColumn(name = "pending_committee_id", nullable = false)
     private Committee pendingCommittee;
-
     @Column(name = "url", nullable = false)
-    private URL legiscanURL;
-
+    private URL legiscanUrl;
     @Column(name="state_link", nullable = false)
-    private URL stateURL;
-
+    private URL stateUrl;
     @Column(name = "change_hash", nullable = false)
     private String changeHash;
-
     @Column(name = "updated", nullable = false)
     private Calendar updated;
-
     @Column(name = "created", nullable = false)
     private Calendar created;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillProgress> progress;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillHistory> histories;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillSponsor> sponsors;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill", orphanRemoval = true)
     private Set<BillSast> sasts;
-
     @ManyToMany
     @JoinTable(name = "bill_subject",
         joinColumns = @JoinColumn(name = "bill_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))
     private Set<Subject> subjects;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillText> texts;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillVote> votes;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillAmendment> amendments;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillSupplement> supplements;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
     private Set<BillCalendar> calendars;
 
     public Bill() {
     }
 
-    public Bill(Long id, State state, Session session, Body body, Body currentBody, Type type, String bill_number, Status status, Date statusDate, String title, String description, Committee pendingCommittee, URL legiscanURL, URL stateURL, String changeHash, Calendar updated, Calendar created) {
-        this.id = id;
+    public Bill(Long billId, State state, LegislativeSession legislativeSession, Body body, Body currentBody, Type type, String billNumber, Progress status, Date statusDate, String title, String description, Committee pendingCommittee, URL legiscanUrl, URL stateUrl, String changeHash, Calendar updated, Calendar created) {
+        this.billId = billId;
         this.state = state;
-        this.session = session;
+        this.legislativeSession = legislativeSession;
         this.body = body;
         this.currentBody = currentBody;
         this.type = type;
-        this.bill_number = bill_number;
+        this.billNumber = billNumber;
         this.status = status;
         this.statusDate = statusDate;
         this.title = title;
         this.description = description;
         this.pendingCommittee = pendingCommittee;
-        this.legiscanURL = legiscanURL;
-        this.stateURL = stateURL;
+        this.legiscanUrl = legiscanUrl;
+        this.stateUrl = stateUrl;
         this.changeHash = changeHash;
         this.updated = updated;
         this.created = created;
     }
 
-    public Long getId() {
-        return id;
+    public Long getBillId() {
+        return billId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBillId(Long billId) {
+        this.billId = billId;
     }
 
     public State getState() {
@@ -141,12 +116,12 @@ public class Bill {
         this.state = state;
     }
 
-    public Session getSession() {
-        return session;
+    public LegislativeSession getLegislativeSession() {
+        return legislativeSession;
     }
 
-    public void setSession(Session session) {
-        this.session = session;
+    public void setLegislativeSession(LegislativeSession legislativeSession) {
+        this.legislativeSession = legislativeSession;
     }
 
     public Body getBody() {
@@ -173,19 +148,19 @@ public class Bill {
         this.type = type;
     }
 
-    public String getBill_number() {
-        return bill_number;
+    public String getBillNumber() {
+        return billNumber;
     }
 
-    public void setBill_number(String bill_number) {
-        this.bill_number = bill_number;
+    public void setBillNumber(String billNumber) {
+        this.billNumber = billNumber;
     }
 
-    public Status getStatus() {
+    public Progress getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Progress status) {
         this.status = status;
     }
 
@@ -221,20 +196,20 @@ public class Bill {
         this.pendingCommittee = pendingCommittee;
     }
 
-    public URL getLegiscanURL() {
-        return legiscanURL;
+    public URL getLegiscanUrl() {
+        return legiscanUrl;
     }
 
-    public void setLegiscanURL(URL legiscanURL) {
-        this.legiscanURL = legiscanURL;
+    public void setLegiscanUrl(URL legiscanUrl) {
+        this.legiscanUrl = legiscanUrl;
     }
 
-    public URL getStateURL() {
-        return stateURL;
+    public URL getStateUrl() {
+        return stateUrl;
     }
 
-    public void setStateURL(URL stateURL) {
-        this.stateURL = stateURL;
+    public void setStateUrl(URL stateUrl) {
+        this.stateUrl = stateUrl;
     }
 
     public String getChangeHash() {
@@ -346,20 +321,20 @@ public class Bill {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Bill bill = (Bill) o;
-        return Objects.equals(id, bill.id) &&
+        return Objects.equals(billId, bill.billId) &&
                 Objects.equals(state, bill.state) &&
-                Objects.equals(session, bill.session) &&
+                Objects.equals(legislativeSession, bill.legislativeSession) &&
                 Objects.equals(body, bill.body) &&
                 Objects.equals(currentBody, bill.currentBody) &&
                 Objects.equals(type, bill.type) &&
-                Objects.equals(bill_number, bill.bill_number) &&
+                Objects.equals(billNumber, bill.billNumber) &&
                 status == bill.status &&
                 Objects.equals(statusDate, bill.statusDate) &&
                 Objects.equals(title, bill.title) &&
                 Objects.equals(description, bill.description) &&
                 Objects.equals(pendingCommittee, bill.pendingCommittee) &&
-                Objects.equals(legiscanURL, bill.legiscanURL) &&
-                Objects.equals(stateURL, bill.stateURL) &&
+                Objects.equals(legiscanUrl, bill.legiscanUrl) &&
+                Objects.equals(stateUrl, bill.stateUrl) &&
                 Objects.equals(changeHash, bill.changeHash) &&
                 Objects.equals(updated, bill.updated) &&
                 Objects.equals(created, bill.created) &&
@@ -378,26 +353,26 @@ public class Bill {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, state, session, body, currentBody, type, bill_number, status, statusDate, title, description, pendingCommittee, legiscanURL, stateURL, changeHash, updated, created, progress, histories, sponsors, sasts, subjects, texts, votes, amendments, supplements, calendars);
+        return Objects.hash(billId, state, legislativeSession, body, currentBody, type, billNumber, status, statusDate, title, description, pendingCommittee, legiscanUrl, stateUrl, changeHash, updated, created, progress, histories, sponsors, sasts, subjects, texts, votes, amendments, supplements, calendars);
     }
 
     @Override
     public String toString() {
         return "Bill{" +
-                "id=" + id +
+                "billId=" + billId +
                 ", state=" + state +
-                ", session=" + session +
+                ", legislativeSession=" + legislativeSession +
                 ", body=" + body +
                 ", currentBody=" + currentBody +
                 ", type=" + type +
-                ", bill_number='" + bill_number + '\'' +
+                ", billNumber='" + billNumber + '\'' +
                 ", status=" + status +
                 ", statusDate=" + statusDate +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", pendingCommittee=" + pendingCommittee +
-                ", legiscanURL=" + legiscanURL +
-                ", stateURL=" + stateURL +
+                ", legiscanUrl=" + legiscanUrl +
+                ", stateUrl=" + stateUrl +
                 ", changeHash='" + changeHash + '\'' +
                 ", updated=" + updated +
                 ", created=" + created +

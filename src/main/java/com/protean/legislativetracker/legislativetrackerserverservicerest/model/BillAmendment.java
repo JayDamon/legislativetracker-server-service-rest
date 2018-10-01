@@ -11,7 +11,7 @@ import java.util.Objects;
 public class BillAmendment {
     @Id
     @Column(name = "amendment_id")
-    private Long id;
+    private Long amendmentId;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bill_id")
     private Bill bill;
@@ -43,8 +43,8 @@ public class BillAmendment {
     public BillAmendment() {
     }
 
-    public BillAmendment(Long id, Bill bill, Integer localCopy, Integer adopted, Body body, MimeType mimeType, Date date, String title, String description, URL legiscanUrl, URL stateUrl, Calendar updated, Calendar created) {
-        this.id = id;
+    public BillAmendment(Long amendmentId, Bill bill, Integer localCopy, Integer adopted, Body body, MimeType mimeType, Date date, String title, String description, URL legiscanUrl, URL stateUrl, Calendar updated, Calendar created) {
+        this.amendmentId = amendmentId;
         this.bill = bill;
         this.localCopy = localCopy;
         this.adopted = adopted;
@@ -59,12 +59,12 @@ public class BillAmendment {
         this.created = created;
     }
 
-    public Long getId() {
-        return id;
+    public Long getAmendmentId() {
+        return amendmentId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAmendmentId(Long amendmentId) {
+        this.amendmentId = amendmentId;
     }
 
     public Bill getBill() {
@@ -168,7 +168,7 @@ public class BillAmendment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BillAmendment that = (BillAmendment) o;
-        return Objects.equals(id, that.id) &&
+        return Objects.equals(amendmentId, that.amendmentId) &&
                 Objects.equals(bill, that.bill) &&
                 Objects.equals(localCopy, that.localCopy) &&
                 Objects.equals(adopted, that.adopted) &&
@@ -186,13 +186,13 @@ public class BillAmendment {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, bill, localCopy, adopted, body, mimeType, date, title, description, legiscanUrl, stateUrl, updated, created);
+        return Objects.hash(amendmentId, bill, localCopy, adopted, body, mimeType, date, title, description, legiscanUrl, stateUrl, updated, created);
     }
 
     @Override
     public String toString() {
         return "BillAmendment{" +
-                "id=" + id +
+                "amendmentId=" + amendmentId +
                 ", bill=" + bill +
                 ", localCopy=" + localCopy +
                 ", adopted=" + adopted +

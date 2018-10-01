@@ -14,7 +14,6 @@ public class BillHistory {
     @ManyToOne
     @JoinColumn(name = "bill_id", insertable = false, updatable = false)
     private Bill bill;
-
     @Column(name = "history_major")
     private Integer historyMajor;
     @OneToOne(fetch = FetchType.LAZY)

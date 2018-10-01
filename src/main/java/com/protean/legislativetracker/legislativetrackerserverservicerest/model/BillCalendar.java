@@ -29,7 +29,7 @@ public class BillCalendar {
     private String location;
     @Column(name = "event_desc")
     private String description;
-    @Column(name = "udpated")
+    @Column(name = "updated")
     private Calendar updated;
     @Column(name = "created")
     private Calendar created;

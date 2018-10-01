@@ -12,7 +12,7 @@ import java.util.Objects;
 public class BillText {
     @Id
     @Column(name = "text_id")
-    private Long id;
+    private Long textId;
     @ManyToOne
     @JoinColumn(name = "bill_id")
     private Bill bill;
@@ -38,12 +38,12 @@ public class BillText {
     public BillText() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getTextId() {
+        return textId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTextId(Long textId) {
+        this.textId = textId;
     }
 
     public Bill getBill() {
@@ -123,7 +123,7 @@ public class BillText {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BillText billText = (BillText) o;
-        return Objects.equals(id, billText.id) &&
+        return Objects.equals(textId, billText.textId) &&
                 Objects.equals(bill, billText.bill) &&
                 Objects.equals(localCopy, billText.localCopy) &&
                 Objects.equals(textType, billText.textType) &&
@@ -138,13 +138,13 @@ public class BillText {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, bill, localCopy, textType, mimeType, date, legiscanUrl, stateUrl, updated, created);
+        return Objects.hash(textId, bill, localCopy, textType, mimeType, date, legiscanUrl, stateUrl, updated, created);
     }
 
     @Override
     public String toString() {
         return "BillText{" +
-                "id=" + id +
+                "textId=" + textId +
                 ", bill=" + bill +
                 ", localCopy=" + localCopy +
                 ", textType=" + textType +

@@ -1,5 +1,7 @@
 package com.protean.legislativetracker.legislativetrackerserverservicerest.model;
 
+import com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.markerinterface.LegiscanOperationable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,10 +11,10 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "state")
-public class State {
+public class State implements LegiscanOperationable {
     @Id
     @Column(name = "state_id", nullable = false)
-    private String id;
+    private Integer stateId;
     @Column(name = "state_abbr", nullable = false)
     private String abbreviation;
     @Column(name = "state_name", nullable = false)
@@ -31,8 +33,8 @@ public class State {
     public State() {
     }
 
-    public State(String id, String abbreviation, String stateName, boolean biennium, String carryOver, String capitol, BigDecimal latitude, BigDecimal longitude) {
-        this.id = id;
+    public State(Integer stateId, String abbreviation, String stateName, boolean biennium, String carryOver, String capitol, BigDecimal latitude, BigDecimal longitude) {
+        this.stateId = stateId;
         this.abbreviation = abbreviation;
         this.stateName = stateName;
         this.biennium = biennium;
@@ -42,12 +44,12 @@ public class State {
         this.longitude = longitude;
     }
 
-    public String getId() {
-        return id;
+    public Integer getStateId() {
+        return stateId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setStateId(Integer stateId) {
+        this.stateId = stateId;
     }
 
     public String getAbbreviation() {
@@ -112,7 +114,7 @@ public class State {
         if (o == null || getClass() != o.getClass()) return false;
         State state = (State) o;
         return biennium == state.biennium &&
-                Objects.equals(id, state.id) &&
+                Objects.equals(stateId, state.stateId) &&
                 Objects.equals(abbreviation, state.abbreviation) &&
                 Objects.equals(stateName, state.stateName) &&
                 Objects.equals(carryOver, state.carryOver) &&
@@ -124,13 +126,13 @@ public class State {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, abbreviation, stateName, biennium, carryOver, capitol, latitude, longitude);
+        return Objects.hash(stateId, abbreviation, stateName, biennium, carryOver, capitol, latitude, longitude);
     }
 
     @Override
     public String toString() {
         return "State{" +
-                "id='" + id + '\'' +
+                "stateId='" + stateId + '\'' +
                 ", abbreviation='" + abbreviation + '\'' +
                 ", stateName='" + stateName + '\'' +
                 ", biennium=" + biennium +

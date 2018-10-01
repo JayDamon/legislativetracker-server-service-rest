@@ -12,7 +12,7 @@ public class Committee {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "committee_body_id", nullable = false)
     private Body body;
-    @Column(name = "commettee_name", nullable = false)
+    @Column(name = "committee_name", nullable = false)
     private String name;
 
     public Committee() {

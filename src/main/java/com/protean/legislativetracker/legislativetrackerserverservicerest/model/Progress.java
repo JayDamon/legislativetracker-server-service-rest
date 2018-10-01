@@ -10,25 +10,25 @@ import java.util.Objects;
 @Table(name = "progress")
 public class Progress {
     @Id
-    @Column(name = "progress_event_id", nullable = false)
-    private Integer id;
+    @Column(name = "progress_step_id", nullable = false)
+    private Integer Id;
     @Column(name = "progress_desc", nullable = false)
     private String description;
 
     public Progress() {
     }
 
-    public Progress(Integer id, String description) {
-        this.id = id;
+    public Progress(Integer Id, String description) {
+        this.Id = Id;
         this.description = description;
     }
 
     public Integer getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getDescription() {
@@ -44,20 +44,20 @@ public class Progress {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Progress progress = (Progress) o;
-        return Objects.equals(id, progress.id) &&
+        return Objects.equals(Id, progress.Id) &&
                 Objects.equals(description, progress.description);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, description);
+        return Objects.hash(Id, description);
     }
 
     @Override
     public String toString() {
         return "Progress{" +
-                "id=" + id +
+                "Id=" + Id +
                 ", description='" + description + '\'' +
                 '}';
     }

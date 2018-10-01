@@ -9,14 +9,14 @@ public class BillProgressId implements Serializable {
     @JoinColumn(name = "bill_id")
     private Bill bill;
     @Column(name = "progress_step")
-    private Integer progressEventID;
+    private Integer progressEventId;
 
     public BillProgressId() {
     }
 
-    public BillProgressId(Bill bill, Integer progressEventID) {
+    public BillProgressId(Bill bill, Integer progressEventId) {
         this.bill = bill;
-        this.progressEventID = progressEventID;
+        this.progressEventId = progressEventId;
     }
 
     public Bill getBill() {
@@ -27,11 +27,11 @@ public class BillProgressId implements Serializable {
         this.bill = bill;
     }
 
-    public Integer getProgressEventID() {
-        return progressEventID;
+    public Integer getProgressEventId() {
+        return progressEventId;
     }
 
-    public void setProgressEventID(Integer progressEventID) {
-        this.progressEventID = progressEventID;
+    public void setProgressEventId(Integer progressEventId) {
+        this.progressEventId = progressEventId;
     }
 }

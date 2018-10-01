@@ -1,34 +1,42 @@
 package com.protean.legislativetracker.legislativetrackerserverservicerest.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.markerinterface.LegiscanOperationable;
+
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "session")
-public class Session {
+public class LegislativeSession implements LegiscanOperationable {
     @Id
     @Column(name = "session_id")
-    private Integer id;
+    @JsonProperty("session_id")
+    private Integer sessionId;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "state_id")
     private State state;
     @Column(name = "year_start", nullable = false)
-    private Date yearStart;
+    @JsonProperty("year_start")
+    private Integer yearStart;
     @Column(name = "year_end", nullable = false)
-    private Date yearEnd;
+    @JsonProperty("year_end")
+    private Integer yearEnd;
     @Column(name = "special", nullable = false)
+    @JsonProperty("special")
     private Boolean special;
     @Column(name = "session_name", nullable = false)
+    @JsonProperty("session_name")
     private String sessionName;
     @Column(name = "session_title", nullable = false)
+    @JsonProperty("session_title")
     private String sessionTitle;
 
-    public Session() {
+    public LegislativeSession() {
     }
 
-    public Session(Integer id, State state, Date yearStart, Date yearEnd, Boolean special, String sessionName, String sessionTitle) {
-        this.id = id;
+    public LegislativeSession(Integer sessionId, State state, Integer yearStart, Integer yearEnd, Boolean special, String sessionName, String sessionTitle) {
+        this.sessionId = sessionId;
         this.state = state;
         this.yearStart = yearStart;
         this.yearEnd = yearEnd;
@@ -37,12 +45,12 @@ public class Session {
         this.sessionTitle = sessionTitle;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getSessionId() {
+        return sessionId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSessionId(Integer sessionId) {
+        this.sessionId = sessionId;
     }
 
     public State getState() {
@@ -53,19 +61,19 @@ public class Session {
         this.state = state;
     }
 
-    public Date getYearStart() {
+    public Integer getYearStart() {
         return yearStart;
     }
 
-    public void setYearStart(Date yearStart) {
+    public void setYearStart(Integer yearStart) {
         this.yearStart = yearStart;
     }
 
-    public Date getYearEnd() {
+    public Integer getYearEnd() {
         return yearEnd;
     }
 
-    public void setYearEnd(Date yearEnd) {
+    public void setYearEnd(Integer yearEnd) {
         this.yearEnd = yearEnd;
     }
 
@@ -97,26 +105,26 @@ public class Session {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Session session = (Session) o;
-        return Objects.equals(id, session.id) &&
-                Objects.equals(state, session.state) &&
-                Objects.equals(yearStart, session.yearStart) &&
-                Objects.equals(yearEnd, session.yearEnd) &&
-                Objects.equals(special, session.special) &&
-                Objects.equals(sessionName, session.sessionName) &&
-                Objects.equals(sessionTitle, session.sessionTitle);
+        LegislativeSession legislativeSession = (LegislativeSession) o;
+        return Objects.equals(sessionId, legislativeSession.sessionId) &&
+                Objects.equals(state, legislativeSession.state) &&
+                Objects.equals(yearStart, legislativeSession.yearStart) &&
+                Objects.equals(yearEnd, legislativeSession.yearEnd) &&
+                Objects.equals(special, legislativeSession.special) &&
+                Objects.equals(sessionName, legislativeSession.sessionName) &&
+                Objects.equals(sessionTitle, legislativeSession.sessionTitle);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, state, yearStart, yearEnd, special, sessionName, sessionTitle);
+        return Objects.hash(sessionId, state, yearStart, yearEnd, special, sessionName, sessionTitle);
     }
 
     @Override
     public String toString() {
-        return "Session{" +
-                "id=" + id +
+        return "LegislativeSession{" +
+                "sessionId=" + sessionId +
                 ", state=" + state +
                 ", yearStart=" + yearStart +
                 ", yearEnd=" + yearEnd +
