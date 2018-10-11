@@ -1,5 +1,8 @@
 package com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan;
 
+import com.protean.legislativetracker.legislativetrackerserverservicerest.utilities.PropertiesFile;
+import org.springframework.beans.factory.annotation.Value;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -17,10 +20,8 @@ public class LegiscanHttpUri {
 
     public static class Builder {
 
-        //    @Value("${legiscan.url}")
         private String url;
 
-        //    @Value("${legiscan.key}")
         private String key;
 
         private HttpURLConnection connection;
@@ -57,10 +58,11 @@ public class LegiscanHttpUri {
         }
 
         private void setBaseValues(LegiscanOperation operation) {
-            url = "https://api.legiscan.com";
+            PropertiesFile propertiesFile = new PropertiesFile();
+            this.url = propertiesFile.getUrl();
+            this.key = propertiesFile.getKey();
             this.operation = operation;
-            this.key = "d8934a599e5330ecd6442d34332eb1bc";
-            parameters = new HashMap<>();
+            this.parameters = new HashMap<>();
         }
 
         public Builder addParameter(String key, String value) {

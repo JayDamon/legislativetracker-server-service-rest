@@ -6,11 +6,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LegiscanHttpUriTest {
-
-    private URL expectedURL;
 
     @Test
     public void createHttpRequest_NormalConditions_UrlCorrect() throws MalformedURLException {
@@ -40,16 +38,4 @@ public class LegiscanHttpUriTest {
         assertEquals(new URL("https://api.legiscan.com/?key=d8934a599e5330ecd6442d34332eb1bc&op=getStateList"),
                 legiscanHttpUri.getConnection().getURL());
     }
-
-    @Test
-    public void test() {
-        try {
-            URL url = new URL("https://Httpasldfkjasdl;kfj");
-            url.openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

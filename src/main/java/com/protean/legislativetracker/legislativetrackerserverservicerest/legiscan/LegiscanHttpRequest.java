@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.annotations.LegiscanJsonName;
 import com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.markerinterface.LegiscanOperationable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +14,8 @@ import java.net.HttpURLConnection;
 import java.util.List;
 
 public class LegiscanHttpRequest {
+
+    private static Logger log = LoggerFactory.getLogger(LegiscanHttpRequest.class);
 
     private LegiscanHttpUri request;
     private String jsonString;
@@ -34,7 +38,7 @@ public class LegiscanHttpRequest {
             in.close();
             return content.toString();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.debug(e.getMessage());
             return null;
         } finally {
             con.disconnect();
@@ -50,7 +54,7 @@ public class LegiscanHttpRequest {
         try {
             return mapper.treeToValue(getNodeFromJson(mappedClass.getSimpleName().toLowerCase()),mappedClass);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.debug(e.getMessage());
             return null;
         }
     }
@@ -62,7 +66,9 @@ public class LegiscanHttpRequest {
             if (mappedClass.isAnnotationPresent(LegiscanJsonName.class)) {
                 name = mappedClass.getAnnotation(LegiscanJsonName.class).name();
             } else {
-                throw new IllegalArgumentException(mappedClass.toString() + " does not have a 'LegiscanJsonName' annotation");
+                String message = mappedClass.toString() + " does not have a 'LegiscanJsonName' annotation";
+                log.error(message);
+                throw new IllegalArgumentException(message);
             }
             return mapper.readValue(
                     getNodeFromJson(name + "s").toString(),
@@ -70,7 +76,7 @@ public class LegiscanHttpRequest {
                             List.class, mappedClass
             ));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.debug(e.getMessage());
             return null;
         }
     }
@@ -82,7 +88,7 @@ public class LegiscanHttpRequest {
             JsonNode fullNode = mapper.readTree(jsonString);
             jsonNode = fullNode.get(node);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.debug(e.getMessage());
         }
         return jsonNode;
     }

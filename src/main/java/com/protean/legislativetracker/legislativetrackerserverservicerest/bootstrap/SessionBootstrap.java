@@ -23,10 +23,13 @@ public class SessionBootstrap implements ApplicationListener<ContextRefreshedEve
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        LegiscanHttpUri legiscanHttpUri = new LegiscanHttpUri.Builder(LegiscanOperation.GET_SESSION_LIST, "state", "me").build();
+        LegiscanHttpUri legiscanHttpUri = new LegiscanHttpUri.Builder(
+                LegiscanOperation.GET_SESSION_LIST, "state", "me").build();
         LegiscanHttpRequest request = new LegiscanHttpRequest(legiscanHttpUri);
-        List<com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.model.LegislativeSession> legiscanLegislativeSessions = request.getPojoListFromJson(com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.model.LegislativeSession.class);
-        List<LegislativeSession> legislativeSessions = LegiscanModelMapper.modelListToLegiscan(legiscanLegislativeSessions, LegislativeSession.class);
+        List<com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.model.LegislativeSession> legiscanLegislativeSessions =
+                request.getPojoListFromJson(com.protean.legislativetracker.legislativetrackerserverservicerest.legiscan.model.LegislativeSession.class);
+        List<LegislativeSession> legislativeSessions =
+                LegiscanModelMapper.modelListToLegiscan(legiscanLegislativeSessions, LegislativeSession.class);
         sessionRepository.saveAll(legislativeSessions);
     }
 }

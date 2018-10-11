@@ -10,8 +10,6 @@ import java.util.List;
 
 public class ModelMapServiceImpl implements ModelMapService {
 
-    //ToDo see if i can combine this with Legiscan Http Request. Lots of code overlap
-
     private static Logger log = LoggerFactory.getLogger(ModelMapServiceImpl.class);
 
     @Override
@@ -22,7 +20,6 @@ public class ModelMapServiceImpl implements ModelMapService {
             return mapper.treeToValue(node, mappedClass);
         } catch (IOException e) {
             log.debug(e.getMessage());
-            e.printStackTrace();
             return null;
         }
     }
@@ -38,7 +35,6 @@ public class ModelMapServiceImpl implements ModelMapService {
             );
         } catch (IOException e) {
             log.debug(e.getMessage());
-            e.printStackTrace();
             return null;
         }
     }

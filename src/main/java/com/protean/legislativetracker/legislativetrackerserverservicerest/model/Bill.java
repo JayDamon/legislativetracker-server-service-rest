@@ -29,7 +29,7 @@ public class Bill {
     @OneToOne
     @JoinColumn(name = "bill_type_id", nullable = false)
     private Type type;
-    @Column(name = "bill_Number", nullable = false) //ToDo change name
+    @Column(name = "bill_Number", nullable = false)
     private String billNumber;
     @OneToOne
     @JoinColumn(name = "progress_step_id", nullable = false)

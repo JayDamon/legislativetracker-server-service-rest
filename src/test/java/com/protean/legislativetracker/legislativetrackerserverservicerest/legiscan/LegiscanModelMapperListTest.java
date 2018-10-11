@@ -35,49 +35,53 @@ public class LegiscanModelMapperListTest {
         for (com.protean.legislativetracker.legislativetrackerserverservicerest.model.LegislativeSession s : legislativeLegislativeSessions) {
             switch (s.getSessionId()) {
                 case 1258:
-                    assertEquals(new Integer(19), s.getState().getStateId());
-                    assertEquals(new Integer(2017), s.getYearStart());
-                    assertEquals(new Integer(2018), s.getYearEnd());
+                    assertEquals(19, s.getState().getStateId().intValue());
+                    assertEquals(2017, s.getYearStart().intValue());
+                    assertEquals(2018, s.getYearEnd().intValue());
                     assertFalse(s.getSpecial());
                     assertEquals("128th Legislature", s.getSessionName());
                     assertEquals("128th Legislature", s.getSessionTitle());
-//                    assertEquals("6e7e2ce10a18bbf1da8b5db6a09a6397", s.hashCode()); //ToDo Maybe add hash code?
+                    assertEquals("5f1928427d95f7da73aa827f803ec219", s.getSessionHash());
                     firstValFound = true;
                     break;
                 case 1132:
-                    assertEquals(new Integer(19), s.getState().getStateId());
-                    assertEquals(new Integer(2015), s.getYearStart());
-                    assertEquals(new Integer(2016), s.getYearEnd());
+                    assertEquals(19, s.getState().getStateId().intValue());
+                    assertEquals(2015, s.getYearStart().intValue());
+                    assertEquals(2016, s.getYearEnd().intValue());
                     assertFalse(s.getSpecial());
                     assertEquals("127th Legislature", s.getSessionName());
                     assertEquals("127th Legislature", s.getSessionTitle());
+                    assertEquals("e8ce3086bdb61cd16f4a19371c9f0378", s.getSessionHash());
                     secondValFound = true;
                     break;
                 case 1004:
-                    assertEquals(new Integer(19), s.getState().getStateId());
-                    assertEquals(new Integer(2013), s.getYearStart());
-                    assertEquals(new Integer(2014), s.getYearEnd());
+                    assertEquals(19, s.getState().getStateId().intValue());
+                    assertEquals(2013, s.getYearStart().intValue());
+                    assertEquals(2014, s.getYearEnd().intValue());
                     assertFalse(s.getSpecial());
                     assertEquals("126th Legislature", s.getSessionName());
                     assertEquals("126th Legislature", s.getSessionTitle());
+                    assertEquals("cfecf9d953053eed982090b4950590b6", s.getSessionHash());
                     thirdValFound = true;
                     break;
                 case 81:
-                    assertEquals(new Integer(19), s.getState().getStateId());
-                    assertEquals(new Integer(2011), s.getYearStart());
-                    assertEquals(new Integer(2012), s.getYearEnd());
+                    assertEquals(19, s.getState().getStateId().intValue());
+                    assertEquals(2011, s.getYearStart().intValue());
+                    assertEquals(2012, s.getYearEnd().intValue());
                     assertFalse(s.getSpecial());
                     assertEquals("125th Legislature", s.getSessionName());
                     assertEquals("125th Legislature", s.getSessionTitle());
+                    assertEquals("f7a9b30cc6a42af780d905678b65b1a9", s.getSessionHash());
                     fourthValFound = true;
                     break;
                 case 48:
-                    assertEquals(new Integer(19), s.getState().getStateId());
-                    assertEquals(new Integer(2009), s.getYearStart());
-                    assertEquals(new Integer(2010), s.getYearEnd());
+                    assertEquals(19, s.getState().getStateId().intValue());
+                    assertEquals(2009, s.getYearStart().intValue());
+                    assertEquals(2010, s.getYearEnd().intValue());
                     assertFalse(s.getSpecial());
                     assertEquals("124th Legislature", s.getSessionName());
                     assertEquals("124th Legislature", s.getSessionTitle());
+                    assertEquals("cbee568f7906a4530387560cc1d0aa67", s.getSessionHash());
                     fifthValFound = true;
                     break;
             }

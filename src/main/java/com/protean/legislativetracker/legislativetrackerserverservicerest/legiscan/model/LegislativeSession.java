@@ -39,6 +39,8 @@ public class LegislativeSession implements LegiscanOperationable {
     private Integer yearEnd;
     @JsonProperty("special")
     private Integer special;
+    @JsonProperty("session_hash")
+    private String sessionHash;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -50,16 +52,16 @@ public class LegislativeSession implements LegiscanOperationable {
     }
 
     /**
-     *
-     * @param sessionName
+     *  @param sessionId
      * @param stateId
+     * @param sessionName
+     * @param sessionTitle
      * @param yearStart
-     * @param sessionId
      * @param yearEnd
      * @param special
-     * @param sessionTitle
+     * @param sessionHash
      */
-    public LegislativeSession(Integer sessionId, Integer stateId, String sessionName, String sessionTitle, Integer yearStart, Integer yearEnd, Integer special) {
+    public LegislativeSession(Integer sessionId, Integer stateId, String sessionName, String sessionTitle, Integer yearStart, Integer yearEnd, Integer special, String sessionHash) {
         super();
         this.sessionId = sessionId;
         this.sessionName = sessionName;
@@ -67,6 +69,7 @@ public class LegislativeSession implements LegiscanOperationable {
         this.yearStart = yearStart;
         this.yearEnd = yearEnd;
         this.special = special;
+        this.sessionHash = sessionHash;
     }
 
     @JsonProperty("session_id")
@@ -136,6 +139,14 @@ public class LegislativeSession implements LegiscanOperationable {
     @JsonProperty("special")
     public void setSpecial(Integer special) {
         this.special = special;
+    }
+
+    public String getSessionHash() {
+        return sessionHash;
+    }
+
+    public void setSessionHash(String sessionHash) {
+        this.sessionHash = sessionHash;
     }
 
     @JsonAnyGetter

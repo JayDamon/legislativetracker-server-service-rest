@@ -429,7 +429,7 @@ public class LegiscanModelMapperSingleItemTest {
         SimpleDateFormat fmt = new SimpleDateFormat("HH:mm");
         for (BillCalendar c : calendars) {
             if (dtf.format(c.getDate()).equals("2017-01-31")) {
-//                assertEquals(new Long(897860), c.getSessionId().getBill().getBillId()); //ToDo Fix the fact that i cant get the bill id
+//                assertEquals(new Long(897860), c.getSessionId().getBill().getBillId()); //TODO Fix the fact that i cant get the bill id
                 assertEquals("Hearing", c.getEventType().getDescription());
                 assertEquals("13:30", fmt.format(c.getTime()));
                 assertEquals("Cross Building, Room 214", c.getLocation());

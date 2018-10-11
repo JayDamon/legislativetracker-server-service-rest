@@ -31,11 +31,13 @@ public class LegislativeSession implements LegiscanOperationable {
     @Column(name = "session_title", nullable = false)
     @JsonProperty("session_title")
     private String sessionTitle;
+    @Column(name = "session_hash", nullable = false)
+    private String sessionHash;
 
     public LegislativeSession() {
     }
 
-    public LegislativeSession(Integer sessionId, State state, Integer yearStart, Integer yearEnd, Boolean special, String sessionName, String sessionTitle) {
+    public LegislativeSession(Integer sessionId, State state, Integer yearStart, Integer yearEnd, Boolean special, String sessionName, String sessionTitle, String sessionHash) {
         this.sessionId = sessionId;
         this.state = state;
         this.yearStart = yearStart;
@@ -43,6 +45,7 @@ public class LegislativeSession implements LegiscanOperationable {
         this.special = special;
         this.sessionName = sessionName;
         this.sessionTitle = sessionTitle;
+        this.sessionHash = sessionHash;
     }
 
     public Integer getSessionId() {
@@ -101,24 +104,32 @@ public class LegislativeSession implements LegiscanOperationable {
         this.sessionTitle = sessionTitle;
     }
 
+    public String getSessionHash() {
+        return sessionHash;
+    }
+
+    public void setSessionHash(String sessionHash) {
+        this.sessionHash = sessionHash;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LegislativeSession legislativeSession = (LegislativeSession) o;
-        return Objects.equals(sessionId, legislativeSession.sessionId) &&
-                Objects.equals(state, legislativeSession.state) &&
-                Objects.equals(yearStart, legislativeSession.yearStart) &&
-                Objects.equals(yearEnd, legislativeSession.yearEnd) &&
-                Objects.equals(special, legislativeSession.special) &&
-                Objects.equals(sessionName, legislativeSession.sessionName) &&
-                Objects.equals(sessionTitle, legislativeSession.sessionTitle);
+        LegislativeSession that = (LegislativeSession) o;
+        return Objects.equals(sessionId, that.sessionId) &&
+                Objects.equals(state, that.state) &&
+                Objects.equals(yearStart, that.yearStart) &&
+                Objects.equals(yearEnd, that.yearEnd) &&
+                Objects.equals(special, that.special) &&
+                Objects.equals(sessionName, that.sessionName) &&
+                Objects.equals(sessionTitle, that.sessionTitle) &&
+                Objects.equals(sessionHash, that.sessionHash);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(sessionId, state, yearStart, yearEnd, special, sessionName, sessionTitle);
+        return Objects.hash(sessionId, state, yearStart, yearEnd, special, sessionName, sessionTitle, sessionHash);
     }
 
     @Override
@@ -131,6 +142,7 @@ public class LegislativeSession implements LegiscanOperationable {
                 ", special=" + special +
                 ", sessionName='" + sessionName + '\'' +
                 ", sessionTitle='" + sessionTitle + '\'' +
+                ", sessionHash='" + sessionHash + '\'' +
                 '}';
     }
 }

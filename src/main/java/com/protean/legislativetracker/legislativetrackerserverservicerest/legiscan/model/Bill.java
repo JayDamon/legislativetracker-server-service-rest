@@ -92,23 +92,23 @@ public class Bill implements LegiscanOperationable {
     @JsonProperty("progress")
     private List<Progress> progress = null;
     @JsonProperty("committee")
-    private Set<Object> committee = null; //ToDo find good bill to test this
+    private Set<Object> committee = null;
     @JsonProperty("history")
     private Set<History> histories = null;
     @JsonProperty("sponsors")
     private Set<Sponsor> sponsors = null;
     @JsonProperty("sasts")
-    private Set<Bill> sasts = null; //ToDo find better bill to test with this
+    private Set<Bill> sasts = null;
     @JsonProperty("subjects")
     private Set<Subject> subjects = null;
     @JsonProperty("texts")
     private Set<Text> texts = null;
     @JsonProperty("votes")
     private Set<Vote> votes = null;
-    @JsonProperty("amendments") //ToDo find better bill to test with this
-    private Set<Object> amendments = null;  //ToDo create AmendmentObject
-    @JsonProperty("supplements") //ToDo find better bill to test with this
-    private Set<Object> supplements = null; //ToDo create SupplementObject
+    @JsonProperty("amendments")
+    private Set<Object> amendments = null;
+    @JsonProperty("supplements")
+    private Set<Object> supplements = null;
     @JsonProperty("calendar")
     private Set<Calendar> calendars = null;
     @JsonIgnore

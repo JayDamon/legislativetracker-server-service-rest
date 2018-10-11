@@ -30,7 +30,7 @@ public class SessionControllerTest {
     @Mock
     SessionService sessionService;
 
-    SessionController controller;
+    private SessionController controller;
 
     @Before
     public void setUp() {
