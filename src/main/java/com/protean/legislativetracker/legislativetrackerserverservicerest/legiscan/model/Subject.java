@@ -3,6 +3,7 @@ package com.protean.legislativetracker.legislativetrackerserverservicerest.legis
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "subject_id",
-    "subject_name"
+        "subject_id",
+        "subject_name"
 })
 public class Subject {
 
@@ -26,13 +27,11 @@ public class Subject {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public Subject() {
     }
 
     /**
-     * 
      * @param subjectName
      * @param subjectId
      */

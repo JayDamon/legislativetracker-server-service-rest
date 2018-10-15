@@ -52,7 +52,7 @@ public class LegiscanHttpRequest {
     <T extends LegiscanOperationable> T getPojoFromJson(Class<T> mappedClass) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.treeToValue(getNodeFromJson(mappedClass.getSimpleName().toLowerCase()),mappedClass);
+            return mapper.treeToValue(getNodeFromJson(mappedClass.getSimpleName().toLowerCase()), mappedClass);
         } catch (IOException e) {
             log.debug(e.getMessage());
             return null;
@@ -74,7 +74,7 @@ public class LegiscanHttpRequest {
                     getNodeFromJson(name + "s").toString(),
                     mapper.getTypeFactory().constructCollectionType(
                             List.class, mappedClass
-            ));
+                    ));
         } catch (IOException e) {
             log.debug(e.getMessage());
             return null;

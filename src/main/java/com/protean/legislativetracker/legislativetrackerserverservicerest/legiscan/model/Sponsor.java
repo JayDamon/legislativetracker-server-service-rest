@@ -3,6 +3,7 @@ package com.protean.legislativetracker.legislativetrackerserverservicerest.legis
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -13,27 +14,27 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @SuppressWarnings("ALL")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "people_id",
-    "person_hash",
-    "party_id",
-    "party",
-    "role_id",
-    "role",
-    "name",
-    "first_name",
-    "middle_name",
-    "last_name",
-    "suffix",
-    "nickname",
-    "district",
-    "ftm_eid",
-    "votesmart_id",
-    "opensecrets_id",
-    "ballotpedia",
-    "sponsor_type_id",
-    "sponsor_order",
-    "committee_sponsor",
-    "committee_id"
+        "people_id",
+        "person_hash",
+        "party_id",
+        "party",
+        "role_id",
+        "role",
+        "name",
+        "first_name",
+        "middle_name",
+        "last_name",
+        "suffix",
+        "nickname",
+        "district",
+        "ftm_eid",
+        "votesmart_id",
+        "opensecrets_id",
+        "ballotpedia",
+        "sponsor_type_id",
+        "sponsor_order",
+        "committee_sponsor",
+        "committee_id"
 })
 public class Sponsor {
 
@@ -84,13 +85,11 @@ public class Sponsor {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public Sponsor() {
     }
 
     /**
-     * 
      * @param personMiddleName
      * @param personVotesmartId
      * @param personLastName

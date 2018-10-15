@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,15 +15,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "doc_id",
-    "date",
-    "type",
-    "type_id",
-    "mime",
-    "mime_id",
-    "url",
-    "state_link",
-    "text_size"
+        "doc_id",
+        "date",
+        "type",
+        "type_id",
+        "mime",
+        "mime_id",
+        "url",
+        "state_link",
+        "text_size"
 })
 public class Text {
 
@@ -49,13 +50,11 @@ public class Text {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public Text() {
     }
 
     /**
-     * 
      * @param textSize
      * @param mimeTypeId
      * @param mimeTypeName

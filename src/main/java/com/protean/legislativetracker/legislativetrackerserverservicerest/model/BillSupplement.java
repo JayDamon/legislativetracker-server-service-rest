@@ -10,9 +10,9 @@ import java.util.Objects;
 @Table(name = "bill_supplement")
 public class BillSupplement {
 
-     @Id
-     @Column(name = "supplement_id")
-     private Long id;
+    @Id
+    @Column(name = "supplement_id")
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bill_id")

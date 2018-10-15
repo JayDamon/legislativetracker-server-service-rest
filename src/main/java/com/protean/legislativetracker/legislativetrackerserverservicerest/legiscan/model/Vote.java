@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,19 +15,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "roll_call_id",
-    "date",
-    "desc",
-    "yea",
-    "nay",
-    "nv",
-    "absent",
-    "total",
-    "passed",
-    "chamber",
-    "chamber_id",
-    "url",
-    "state_link"
+        "roll_call_id",
+        "date",
+        "desc",
+        "yea",
+        "nay",
+        "nv",
+        "absent",
+        "total",
+        "passed",
+        "chamber",
+        "chamber_id",
+        "url",
+        "state_link"
 })
 public class Vote {
 
@@ -61,13 +62,11 @@ public class Vote {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public Vote() {
     }
 
     /**
-     * 
      * @param total
      * @param yea
      * @param description

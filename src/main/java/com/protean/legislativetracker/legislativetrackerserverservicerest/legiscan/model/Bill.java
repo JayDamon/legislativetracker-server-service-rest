@@ -14,38 +14,38 @@ import com.protean.legislativetracker.legislativetrackerserverservicerest.legisc
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "bill_id",
-    "change_hash",
-    "session_id",
-    "session",
-    "url",
-    "state_link",
-    "completed",
-    "statusId",
-    "status_date",
-    "progress",
-    "state",
-    "state_id",
-    "bill_number",
-    "bill_type",
-    "bill_type_id",
-    "body",
-    "body_id",
-    "current_body",
-    "current_body_id",
-    "title",
-    "description",
-    "committee",
-    "pending_committee_id",
-    "history",
-    "sponsors",
-    "sasts",
-    "subjects",
-    "texts",
-    "votes",
-    "amendments",
-    "supplements",
-    "calendar"
+        "bill_id",
+        "change_hash",
+        "session_id",
+        "session",
+        "url",
+        "state_link",
+        "completed",
+        "statusId",
+        "status_date",
+        "progress",
+        "state",
+        "state_id",
+        "bill_number",
+        "bill_type",
+        "bill_type_id",
+        "body",
+        "body_id",
+        "current_body",
+        "current_body_id",
+        "title",
+        "description",
+        "committee",
+        "pending_committee_id",
+        "history",
+        "sponsors",
+        "sasts",
+        "subjects",
+        "texts",
+        "votes",
+        "amendments",
+        "supplements",
+        "calendar"
 })
 public class Bill implements LegiscanOperationable {
 
@@ -116,13 +116,11 @@ public class Bill implements LegiscanOperationable {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Bill() {
     }
 
     /**
-     *
      * @param progress
      * @param bodyShort
      * @param currentBodyId

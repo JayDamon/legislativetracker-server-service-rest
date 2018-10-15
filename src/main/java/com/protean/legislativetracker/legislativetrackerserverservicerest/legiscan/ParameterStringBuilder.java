@@ -9,7 +9,7 @@ class ParameterStringBuilder {
         StringBuilder result = new StringBuilder();
         for (Map.Entry<String, String> entry : params.entrySet()) {
             result.append(addItem(entry.getKey(), entry.getValue()))
-                .append("&");
+                    .append("&");
         }
         String resultString = result.toString();
         return resultString.length() > 0 ? resultString.substring(0, result.length() - 1) : resultString;

@@ -56,7 +56,7 @@ public class SessionControllerTest {
 
         List<LegislativeSession> returnedSessions =
                 new ModelMapServiceImpl().getListModelFromJson(
-                    LegislativeSession.class, result.getResponse().getContentAsString());
+                        LegislativeSession.class, result.getResponse().getContentAsString());
         LegislativeSession returnedSession = returnedSessions.get(0);
         assertEquals(1258, returnedSession.getSessionId().intValue());
     }

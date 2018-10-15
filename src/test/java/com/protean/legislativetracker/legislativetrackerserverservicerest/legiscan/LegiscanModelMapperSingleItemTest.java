@@ -100,6 +100,7 @@ public class LegiscanModelMapperSingleItemTest {
     public void billModelToLegiscan_BillType_BillTypeAbbrMapped() {
         assertEquals("B", bill.getType().getBillTypeAbbreviation());
     }
+
     @Test
     public void billModelToLegiscan_BillType_BillTypeNameNull() {
         assertNull(bill.getType().getBillTypeName());
@@ -142,7 +143,7 @@ public class LegiscanModelMapperSingleItemTest {
 
     @Test
     public void billModelToLegiscan_BillDescription_DescriptionMapped() {
-        assertEquals("An Act To Provide Training for Forest Rangers To Carry Firearms" , bill.getDescription());
+        assertEquals("An Act To Provide Training for Forest Rangers To Carry Firearms", bill.getDescription());
     }
 
     @Test
@@ -171,7 +172,7 @@ public class LegiscanModelMapperSingleItemTest {
             if (dtf.format(p.getProgressDate()).equals("2017-06-08")
                     && p.getId().getProgressEventId() == 2) progressFour = true;
             if (dtf.format(p.getProgressDate()).equals("2017-06-09")
-                    && p.getId().getProgressEventId() == 3)progressFive = true;
+                    && p.getId().getProgressEventId() == 3) progressFive = true;
             if (dtf.format(p.getProgressDate()).equals("2018-06-21")
                     && p.getId().getProgressEventId() == 4) progressSix = true;
             if (dtf.format(p.getProgressDate()).equals("2018-07-09")
@@ -187,7 +188,7 @@ public class LegiscanModelMapperSingleItemTest {
     }
 
     @Test
-    public void  billModelToLegiscan_BillHistory_SetHasAllElements() {
+    public void billModelToLegiscan_BillHistory_SetHasAllElements() {
         assertEquals(44, bill.getHistories().size());
     }
 
@@ -221,7 +222,7 @@ public class LegiscanModelMapperSingleItemTest {
     }
 
     @Test
-    public void  billModelToLegiscan_BillSponsors_SetHasAllElements() {
+    public void billModelToLegiscan_BillSponsors_SetHasAllElements() {
         assertEquals(10, bill.getSponsors().size());
     }
 

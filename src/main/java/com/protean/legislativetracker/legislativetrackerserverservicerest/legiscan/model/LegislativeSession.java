@@ -3,6 +3,7 @@ package com.protean.legislativetracker.legislativetrackerserverservicerest.legis
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,13 +15,13 @@ import com.protean.legislativetracker.legislativetrackerserverservicerest.legisc
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "session_id",
-    "state_id",
-    "session_name",
-    "session_title",
-    "year_start",
-    "year_end",
-    "special"
+        "session_id",
+        "state_id",
+        "session_name",
+        "session_title",
+        "year_start",
+        "year_end",
+        "special"
 })
 @LegiscanJsonName(name = "session")
 public class LegislativeSession implements LegiscanOperationable {
@@ -46,13 +47,12 @@ public class LegislativeSession implements LegiscanOperationable {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public LegislativeSession() {
     }
 
     /**
-     *  @param sessionId
+     * @param sessionId
      * @param stateId
      * @param sessionName
      * @param sessionTitle

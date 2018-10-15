@@ -11,5 +11,5 @@ public class StateController {
     public String listOfStates() {
         return "states/states";
     }
-    
+
 }

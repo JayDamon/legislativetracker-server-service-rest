@@ -15,8 +15,8 @@ public class ModelMapServiceImplTest {
     @Test
     public void getModelFromJson_ValidSession_ReturnsSession() {
         String json = "{" +
-                    "\"state\":{\"stateId\":null,\"abbreviation\":\"me\",\"stateName\":null,\"biennium\":false," +
-                    "\"carryOver\":null,\"capitol\":null,\"latitude\":null,\"longitude\":null}," +
+                "\"state\":{\"stateId\":null,\"abbreviation\":\"me\",\"stateName\":null,\"biennium\":false," +
+                "\"carryOver\":null,\"capitol\":null,\"latitude\":null,\"longitude\":null}," +
                 "\"session_id\":1258,\"year_start\":2017,\"year_end\":2018,\"special\":0," +
                 "\"session_name\":\"128th Legislature\",\"session_title\":\"128th Legislature\"}";
         LegislativeSession returnSession = modelMapService.getModelFromJson(LegislativeSession.class, json);

@@ -4,6 +4,7 @@ package com.protean.legislativetracker.legislativetrackerserverservicerest.legis
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -13,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "date",
-    "event"
+        "date",
+        "event"
 })
 public class Progress {
 
@@ -27,13 +28,11 @@ public class Progress {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public Progress() {
     }
 
     /**
-     * 
      * @param progressEventId
      * @param progressDate
      */

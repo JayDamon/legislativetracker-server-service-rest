@@ -20,7 +20,7 @@ public class SessionServiceImpl implements SessionService {
     public Set<LegislativeSession> getSessions() {
         Set<LegislativeSession> sessions = new HashSet<>();
         sessionRepository.findAll().iterator().forEachRemaining(sessions::add);
-        return  sessions;
+        return sessions;
     }
 
     @Override

@@ -42,7 +42,6 @@ public class SessionServiceTest {
         assertNotNull("Null session returned", sessionReturned);
     }
 
-
     @Test(expected = IllegalArgumentException.class)
     public void getSessionById_InvalidId_SessionReturned() {
         LegislativeSession session = new LegislativeSession();
@@ -62,7 +61,7 @@ public class SessionServiceTest {
         Set<LegislativeSession> sessionsData = new HashSet<>();
         sessionsData.add(session);
 
-        when (sessionService.getSessions()).thenReturn(sessionsData);
+        when(sessionService.getSessions()).thenReturn(sessionsData);
 
         Set<LegislativeSession> sessions = sessionService.getSessions();
 

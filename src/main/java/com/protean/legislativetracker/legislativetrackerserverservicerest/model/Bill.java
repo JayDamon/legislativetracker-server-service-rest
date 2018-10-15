@@ -45,7 +45,7 @@ public class Bill {
     private Committee pendingCommittee;
     @Column(name = "url", nullable = false)
     private URL legiscanUrl;
-    @Column(name="state_link", nullable = false)
+    @Column(name = "state_link", nullable = false)
     private URL stateUrl;
     @Column(name = "change_hash", nullable = false)
     private String changeHash;
@@ -63,7 +63,7 @@ public class Bill {
     private Set<BillSast> sasts;
     @ManyToMany
     @JoinTable(name = "bill_subject",
-        joinColumns = @JoinColumn(name = "bill_id"),
+            joinColumns = @JoinColumn(name = "bill_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))
     private Set<Subject> subjects;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")

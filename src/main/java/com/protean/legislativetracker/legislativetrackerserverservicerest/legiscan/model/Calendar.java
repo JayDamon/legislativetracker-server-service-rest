@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,12 +17,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "type_id",
-    "type",
-    "date",
-    "time",
-    "location",
-    "description"
+        "type_id",
+        "type",
+        "date",
+        "time",
+        "location",
+        "description"
 })
 public class Calendar {
 
@@ -42,13 +43,11 @@ public class Calendar {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public Calendar() {
     }
 
     /**
-     * 
      * @param time
      * @param location
      * @param description

@@ -34,7 +34,7 @@ public class LegiscanHttpUri {
             if (operation.equals(LegiscanOperation.GET_STATE_LIST)) {
                 setUpParams(operation);
             } else {
-                throw new IllegalArgumentException(operation  +
+                throw new IllegalArgumentException(operation +
                         ": must be accompanied by an initial set of parameters.");
             }
         }
@@ -75,8 +75,8 @@ public class LegiscanHttpUri {
                 StringBuilder stringBuilder = appendInitialValues(
                         new StringBuilder(url)
                 );
-                if(parameters.size() > 0) {
-                   stringBuilder.append(ParameterStringBuilder.getParamsString(parameters));
+                if (parameters.size() > 0) {
+                    stringBuilder.append(ParameterStringBuilder.getParamsString(parameters));
                 }
                 return new LegiscanHttpUri(createHttpRequest(stringBuilder.toString()));
             } catch (UnsupportedEncodingException e) {

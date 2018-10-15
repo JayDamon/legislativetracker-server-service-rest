@@ -18,12 +18,14 @@ public class SessionController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public @ResponseBody Set<LegislativeSession> getSessions() {
+    public @ResponseBody
+    Set<LegislativeSession> getSessions() {
         return sessionService.getSessions();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public @ResponseBody LegislativeSession getSessionById(@PathVariable Integer id) {
+    public @ResponseBody
+    LegislativeSession getSessionById(@PathVariable Integer id) {
         return sessionService.getSessionById(id);
     }
 }
